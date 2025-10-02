@@ -1,39 +1,40 @@
-# My .NET Core Console Application
+# Apple Insurance Pricing Engine
 
-This is a simple .NET Core console application.
+## Parameters
 
-## Getting Started
+- **NumberOfApples**: Total apples insured.
+- **Month**: Month of insurance (1 = January, ..., 12 = December).
+- **DistanceMiles**: Distance apples are transported from orchard (in miles).
+- **LockedCompoundWithCCTV**: Are apples stored in a locked compound with CCTV? (`true` or `false`).
 
-To build and run this application, follow these steps:
+## Pricing Rules
 
-1. **Prerequisites**: Ensure you have the .NET SDK installed on your machine. You can download it from the official [.NET website](https://dotnet.microsoft.com/download).
+- £0.01 per apple.
+- 5% discount for 1,000–10,000 apples.
+- 8% discount for >10,000 apples.
+- 10% loading for January–March.
+- -10% loading for April–September.
+- £5.00 loading per 1,000 apples if distance >100 miles.
+- £0.20 discount per 500 apples (max £3.50) if stored in locked compound with CCTV.
 
-2. **Clone the repository**: If you haven't already, clone this repository to your local machine using:
-   ```
-   git clone https://github.com/yourusername/my-dotnet-console-app.git
-   ```
+## Input JSON Structure
 
-3. **Navigate to the project directory**:
-   ```
-   cd my-dotnet-console-app
-   ```
+```json
+{
+  "NumberOfApples": 12000,
+  "Month": 2,
+  "DistanceMiles": 150,
+  "LockedCompoundWithCCTV": true
+}
+```
 
-4. **Build the application**: Use the following command to build the application:
-   ```
-   dotnet build
-   ```
+## Example Usage
 
-5. **Run the application**: After building, you can run the application with:
-   ```
-   dotnet run
-   ```
+1. Save your parameters in a file called `input.json`.
+2. Run the application:
 
-## Project Structure
+```sh
+dotnet run --project my-dotnet-console-app input.json
+```
 
-- `Program.cs`: The entry point of the application.
-- `my-dotnet-console-app.csproj`: The project file containing configuration and dependencies.
-- `README.md`: Documentation for the project.
-
-## Contributing
-
-Feel free to submit issues or pull requests if you have suggestions or improvements for this project.
+The final insurance premium will be printed to the console.
