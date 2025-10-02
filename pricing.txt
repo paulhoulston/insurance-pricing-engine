@@ -1,0 +1,14 @@
+Initial AI Prompt
+-----------------
+I want to be price apples seasonally. The following price rules apply:
+
+- An apple is charged at a premium of £0.01 per apple.
+- If the number of apples insured is between 1000 and 10000, then I give a discount of 5% for the number of apples in this range.
+- If the number of apples insured is over 10000, then I give a discount of 8% for the number of apples in this range.
+- If the month is between January and March, then I want to be able to charge an additional loading of 10% on top of the base premium.
+- If the month is between April and September, then I want to be able to charge an additional loading of -10% on top of the base premium.
+- If the distaance that apples are transported is more than 100 miles from the orchard location (determined by postcode), then a loading of £5.00 is applied for every 1000 apples.
+- If the apples are stored in a locked compund with CCTV, then a discount of £0.20 per 500 apples is applied up to a maximum of £3.50.
+
+Update the Program.cs file to accept an input JSON file detailing the parameters defined by the rules above. The application should then apply the rules and specify the final insurance premium to the console output. I also want the readme file updated with a description of the parameters, what they mean, and an example of how to call the program. The structure of the input JSON file needs to be included in the readme file, and an example generated for me to use.
+
